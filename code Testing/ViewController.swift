@@ -15,7 +15,7 @@ class ViewController: UIViewController, BirdsFlying {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
         let crow = Crow()
         let controller = Bird(bird: crow)
         controller.delegate = self
