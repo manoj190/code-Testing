@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+// Delegate pattern
 protocol BirdsFlying: AnyObject {
     func birdsDidStartFlying(name: String)
 }
@@ -30,6 +30,7 @@ class ViewController: UIViewController, BirdsFlying {
     }
 }
 
+// Dependency Inversion pattern
 protocol Flyable {
     var name:String{get}
     func fly()
@@ -53,7 +54,7 @@ class Eagle: Flyable {
 class Bird {
     let bird: Flyable
     weak var delegate:BirdsFlying?
-    
+    // Dependency Injection(constructor)
     init(bird: Flyable) {
         self.bird = bird
     }
@@ -64,7 +65,7 @@ class Bird {
     }
 }
 
-
+// Singleton pattern
 class BirdSanctuary {
     static let shared = BirdSanctuary()
     var birds: [Flyable] = []
